@@ -15,9 +15,9 @@ levels = [ ExtResource( 1 ) ]
 [node name="Level1" parent="LevelHolder" instance=ExtResource( 1 )]
 
 [node name="ActionSelector" type="Panel" parent="."]
-margin_left = 263.0
-margin_top = 461.0
-margin_right = 764.0
+margin_left = 232.0
+margin_top = 457.0
+margin_right = 795.0
 margin_bottom = 603.0
 script = ExtResource( 3 )
 __meta__ = {
@@ -27,9 +27,12 @@ action_button_node = ExtResource( 4 )
 action_label_node = ExtResource( 5 )
 
 [node name="AllowedActions" type="HBoxContainer" parent="ActionSelector"]
-margin_top = 99.0
-margin_right = 499.0
-margin_bottom = 139.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
 custom_constants/separation = 10
 alignment = 1
 __meta__ = {
@@ -37,13 +40,13 @@ __meta__ = {
 }
 
 [node name="ActionButton" parent="ActionSelector/AllowedActions" instance=ExtResource( 4 )]
-margin_left = 224.0
-margin_right = 275.0
+margin_left = 256.0
+margin_right = 307.0
 text = "action"
 
 [node name="SelectedActions" type="GridContainer" parent="ActionSelector"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 5.0
+margin_top = 5.0
 columns = 5
 __meta__ = {
 "_edit_use_anchors_": false
@@ -52,31 +55,36 @@ __meta__ = {
 [node name="ActionLabel" parent="ActionSelector/SelectedActions" instance=ExtResource( 5 )]
 
 [node name="ClearButton" type="Button" parent="ActionSelector"]
-margin_left = 454.947
-margin_top = 2.8316
-margin_right = 498.947
-margin_bottom = 22.8316
+anchor_left = 1.0
+anchor_right = 1.0
+margin_top = 5.0
+margin_right = -5.0
+grow_horizontal = 0
 text = "Clear"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RunButton" type="Button" parent="ActionSelector"]
-margin_left = 454.947
-margin_top = 26.8316
-margin_right = 498.947
-margin_bottom = 46.8316
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -49.0
+margin_top = 30.0
+margin_right = -5.0
+margin_bottom = 50.0
+grow_horizontal = 0
 text = "Run"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="StopButton" type="Button" parent="ActionSelector"]
-visible = false
-margin_left = 454.947
-margin_top = 26.8316
-margin_right = 498.947
-margin_bottom = 46.8316
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -49.0
+margin_top = 30.0
+margin_right = -5.0
+margin_bottom = 50.0
 text = "Stop"
 __meta__ = {
 "_edit_use_anchors_": false

@@ -9,6 +9,6 @@ const Titles := {
 	WalkDown: "Walk Down",
 	WalkLeft: "Walk Left",
 	WalkRight: "Walk Right",
-	StrapOn: "Strap On",
+	StrapOn: "Strap One On",
 	Converse: "Converse",
 }

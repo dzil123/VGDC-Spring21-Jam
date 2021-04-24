@@ -46,6 +46,9 @@ func apply_action(action):
 			yield(move(Vector2.LEFT), "completed")
 		Actions.WalkRight:
 			yield(move(Vector2.RIGHT), "completed")
+		Actions.StrapOn:
+			$AudioStrapOneOn.play()
+			yield($AudioStrapOneOn, "finished")
 		_:
 			print("unmatched action! %s" % action)
 			yield(get_tree().create_timer(delay_time), "timeout")
