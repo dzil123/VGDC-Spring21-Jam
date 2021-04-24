@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="ActionLabel" type="Label"]
+margin_right = 157.0
+margin_bottom = 14.0
+text = "example selected action"

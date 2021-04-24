@@ -1,0 +1,10 @@
+[gd_scene format=2]
+
+[node name="ActionButton" type="Button"]
+margin_left = 127.0
+margin_right = 218.0
+margin_bottom = 40.0
+text = "walk forward"
+__meta__ = {
+"_edit_use_anchors_": false
+}
