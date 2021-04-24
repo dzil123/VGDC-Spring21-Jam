@@ -16,9 +16,9 @@ levels = [ ExtResource( 1 ) ]
 
 [node name="ActionSelector" type="Panel" parent="."]
 margin_left = 232.0
-margin_top = 457.0
+margin_top = 459.0
 margin_right = 795.0
-margin_bottom = 603.0
+margin_bottom = 599.0
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -31,6 +31,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -40.0
+margin_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
 custom_constants/separation = 10
@@ -42,6 +43,7 @@ __meta__ = {
 [node name="ActionButton" parent="ActionSelector/AllowedActions" instance=ExtResource( 4 )]
 margin_left = 256.0
 margin_right = 307.0
+margin_bottom = 35.0
 text = "action"
 
 [node name="SelectedActions" type="GridContainer" parent="ActionSelector"]
