@@ -6,11 +6,15 @@ signal stop_running
 signal update_running(is_running)
 
 export(Array, PackedScene) var levels
+export(Array, String) var empty_dialog
 var current_level: int
 
 var is_running = false
+var queue_stop = false
 
 func _ready():
+	randomize()
+
 	connect("update_running", self, "update_running")
 	connect("start_running", self, "start_running")
 	connect("stop_running", self, "stop_running")
@@ -48,12 +52,30 @@ func run_action_sequence():
 		print("sending action to player %s" % action)
 		yield(get_player().apply_action(self, action), "completed")
 
+		if queue_stop:
+			queue_stop = false
+			print("early stop")
+			break
+
 	print("done")
 	yield(get_tree().create_timer(2.0), "timeout")
 	emit_signal("stop_running")
 
-func read_dialog(text):
-	yield($GUI/DialogViewer.read_dialog(text), "completed")
+# triggerable from the player
+
+func read_dialog(text, speed=1):
+	yield($GUI/DialogViewer.read_dialog(text, speed), "completed")
+
+func give_action(action):
+	$GUI/ActionSelector.allowed_actions.append(action)
+	$GUI/ActionSelector.queue_clear = true
+
+func read_random_dialog():
+	yield(read_dialog(empty_dialog[randi() % empty_dialog.size()]), "completed")
+
+func reset_loop():
+	queue_stop = true
+	yield(get_tree().create_timer(0.0), "timeout")
 
 # these functions are seperate from start_running/stop_running because
 # there might be a reason to veto the buttonpress

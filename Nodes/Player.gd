@@ -61,7 +61,12 @@ func apply_action(game, action):
 		Actions.Converse:
 			var object = get_object_on_top()
 			if object == null:
-				yield(game.read_dialog("But nobody came..."), "completed")
+##				var ZWS = "​"
+#				var text = "But nobody came..."
+##				for i in range(10):
+##					text = ZWS + text
+#				yield(game.read_dialog(text, 0.2), "completed")
+				yield(game.read_random_dialog(), "completed")
 			else:
 				yield(object.converse(game, self), "completed")
 		_:

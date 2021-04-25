@@ -7,9 +7,10 @@ onready var allowed_actions_container := get_node(@"AllowedActions")
 onready var selected_actions_container := get_node(@"SelectedActions")
 
 # these can be written and set by the game node
-var allowed_actions := [Actions.WalkUp, Actions.WalkDown, Actions.WalkLeft, Actions.WalkRight, Actions.StrapOn, Actions.Converse]
+var allowed_actions := [Actions.WalkUp, Actions.WalkDown, Actions.WalkLeft, Actions.WalkRight, Actions.Converse]
 var max_actions := 8
 var selected_actions := []
+var queue_clear = false
 
 func _ready():
 	update_allowed_actions()
@@ -19,6 +20,7 @@ func _ready():
 func update_allowed_actions():
 	for button in allowed_actions_container.get_children():
 		button.queue_free()
+		allowed_actions_container.remove_child(button)
 	for action in allowed_actions:
 		var button := action_button_node.instance()
 		button.text = Actions.Titles[action]
@@ -29,6 +31,8 @@ func update_allowed_actions():
 func update_selected_actions():
 	for label in selected_actions_container.get_children():
 		label.queue_free()
+		selected_actions_container.remove_child(label)
+#		label.remove_and_skip()
 	for action in selected_actions:
 		var label := action_label_node.instance()
 		label.set_action(action)
@@ -56,3 +60,15 @@ func _on_action_button_pressed(action):
 func _on_ClearButton_pressed():
 	selected_actions.clear()
 	update_selected_actions()
+
+func _on_Main_Game_stop_running():
+	if queue_clear:
+		queue_clear = false
+		selected_actions.clear()
+		update_selected_actions()
+
+	update_allowed_actions()
+	update_running(false)
+
+func _on_Main_Game_start_running():
+	update_running(true)
