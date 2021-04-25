@@ -1,9 +1,8 @@
 extends Area2D
 
-onready var ray = $RayCast2D
-
 var tile_size = 64
 var delay_time = 0.75
+var game
 
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
@@ -14,9 +13,9 @@ func move(dir: Vector2):
 
 	dir *= tile_size
 
-	ray.cast_to = dir
-	ray.force_raycast_update()
-	if ray.is_colliding():
+	$RayCastImmovable.cast_to = dir
+	$RayCastImmovable.force_raycast_update()
+	if $RayCastImmovable.is_colliding():
 		print("collision")
 
 		$Tween.interpolate_property(self, "position",
@@ -36,7 +35,17 @@ func move(dir: Vector2):
 		delay_time, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	yield(wait_for_tween(), "completed")
 
-func apply_action(action):
+	var object = get_object_on_top()
+	if object != null:
+		yield(object.interact(game, self), "completed")
+
+func get_object_on_top():
+	$RayCastInteractable.force_raycast_update()
+	return $RayCastInteractable.get_collider()
+
+func apply_action(game, action):
+	self.game = game
+
 	match action:
 		Actions.WalkUp:
 			yield(move(Vector2.UP), "completed")
@@ -49,6 +58,12 @@ func apply_action(action):
 		Actions.StrapOn:
 			$AudioStrapOneOn.play()
 			yield($AudioStrapOneOn, "finished")
+		Actions.Converse:
+			var object = get_object_on_top()
+			if object == null:
+				yield(game.read_dialog("But nobody came..."), "completed")
+			else:
+				yield(object.converse(game, self), "completed")
 		_:
 			print("unmatched action! %s" % action)
 			yield(get_tree().create_timer(delay_time), "timeout")

@@ -8,7 +8,7 @@ onready var selected_actions_container := get_node(@"SelectedActions")
 
 # these can be written and set by the game node
 var allowed_actions := [Actions.WalkUp, Actions.WalkDown, Actions.WalkLeft, Actions.WalkRight, Actions.StrapOn, Actions.Converse]
-var max_actions := 20
+var max_actions := 8
 var selected_actions := []
 
 func _ready():
@@ -18,7 +18,7 @@ func _ready():
 
 func update_allowed_actions():
 	for button in allowed_actions_container.get_children():
-		button.free()
+		button.queue_free()
 	for action in allowed_actions:
 		var button := action_button_node.instance()
 		button.text = Actions.Titles[action]
@@ -28,12 +28,17 @@ func update_allowed_actions():
 
 func update_selected_actions():
 	for label in selected_actions_container.get_children():
-		label.free()
+		label.queue_free()
 	for action in selected_actions:
 		var label := action_label_node.instance()
-		label.text = Actions.Titles[action]
+		label.set_action(action)
 
 		selected_actions_container.add_child(label)
+
+	yield(get_tree(), "idle_frame")
+
+	for label in selected_actions_container.get_children():
+		label.rect_size = Vector2.ONE * 80
 
 func update_running(is_running):
 	$ClearButton.disabled = is_running

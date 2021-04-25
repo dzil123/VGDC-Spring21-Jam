@@ -1,6 +1,28 @@
-[gd_scene format=2]
+[gd_scene load_steps=8 format=2]
 
-[node name="ActionLabel" type="Label"]
-margin_right = 157.0
-margin_bottom = 14.0
-text = "example selected action"
+[ext_resource path="res://Assets/Sprites/arrowDown.png" type="Texture" id=1]
+[ext_resource path="res://Nodes/ActionLabel.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sprites/arrowRight.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/strapOneOn.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/arrowLeft.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/converse.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/arrowUp.png" type="Texture" id=7]
+
+[node name="Panel" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+selected_action_textures = [ ExtResource( 7 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ) ]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}

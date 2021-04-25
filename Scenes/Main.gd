@@ -1,11 +1,9 @@
-extends Node2D
+extends Node
 
 # only ever trigger start_running/stop_running
 signal start_running
 signal stop_running
 signal update_running(is_running)
-
-onready var action_selector := get_node(@"ActionSelector")
 
 export(Array, PackedScene) var levels
 var current_level: int
@@ -40,17 +38,22 @@ func stop_running():
 	# reset the level to initial state
 	load_level()
 
+func get_player():
+	return $LevelHolder.get_child(0).get_node("Player")
+
 func run_action_sequence():
-	var player = $LevelHolder.get_child(0).get_node("Player")
-	var actions = $ActionSelector.selected_actions
+	var actions = $GUI/ActionSelector.selected_actions
 
 	for action in actions:
 		print("sending action to player %s" % action)
-		yield(player.apply_action(action), "completed")
+		yield(get_player().apply_action(self, action), "completed")
 
 	print("done")
 	yield(get_tree().create_timer(2.0), "timeout")
 	emit_signal("stop_running")
+
+func read_dialog(text):
+	yield($GUI/DialogViewer.read_dialog(text), "completed")
 
 # these functions are seperate from start_running/stop_running because
 # there might be a reason to veto the buttonpress
