@@ -2,6 +2,7 @@ extends Area2D
 
 export(Array, String, MULTILINE) var interact_dialog
 export(Array, String, MULTILINE) var converse_dialog
+export(Array, String, MULTILINE) var special_dialog_todo
 
 func interact(game, player):
 	if converse_dialog.empty():
@@ -11,6 +12,11 @@ func interact(game, player):
 	for dialog in interact_dialog:
 		yield(game.read_dialog(dialog), "completed")
 
+	if not game.has_action(Actions.Converse):
+		for dialog in special_dialog_todo:
+			yield(game.read_dialog(dialog), "completed")
+		yield(game.give_action(Actions.Converse), "completed")
+
 func converse(game, player):
 	if converse_dialog.empty():
 		yield(game.read_dialog("Missing dialog!"), "completed")
@@ -19,5 +25,4 @@ func converse(game, player):
 	for dialog in converse_dialog:
 		yield(game.read_dialog(dialog), "completed")
 
-	game.give_action(Actions.StrapOn)
-	yield(game.read_dialog("You received a new action!"), "completed")
+	yield(game.give_action(Actions.StrapOn), "completed")

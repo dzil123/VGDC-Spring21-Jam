@@ -8,6 +8,7 @@ func _ready():
 	clear()
 
 func clear():
+	return
 	end_tween()
 
 	$RichTextLabel.bbcode_text = ""
@@ -20,6 +21,7 @@ func end_tween():
 	$RichTextLabel.visible_characters = -1
 
 func read_dialog(dialog, speed=1):
+	return
 	$RichTextLabel.bbcode_text = dialog
 	$RichTextLabel.visible_characters = 0
 	var num_chars = dialog.length()

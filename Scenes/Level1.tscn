@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/TileSet.tres" type="TileSet" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/starfish_tree.png" type="Texture" id=2]
 [ext_resource path="res://Nodes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Nodes/NPC.gd" type="Script" id=4]
 
@@ -24,24 +24,17 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource( 4 )
 interact_dialog = [ "You see a tree with starfish littered across its branches." ]
-converse_dialog = [ "I have a follow-up question to this.
-
-How can I reference the object variable in _on_Tween_tween_completed(object, key) if what is being generated is the I.D. and object type?
-
-For example; say I wanted something to happen in the _on_Tween_tween_completed(object, key) only if one a specific tween finishes, out of multiple. Something like this doesn't seem to work:", "object in the signal parameters is a reference to the object the tween is operating on.
-
-I can't see your tween setup, but you may be accessing the wrong node. Try putting print(object.name) there to check.
-
- commented Dec 14, 2019 by kidscancode
-I'm so sorry, I never got an alert to your replying.
-
-I retested it and the object reference works exactly as expected, I was wrong in my initial question. Thank you for the quick reply you gave me though!
-
-commented Dec 19, 2019 by Dumuz" ]
+converse_dialog = [ "The starfish gives you a chainsaw" ]
+special_dialog_todo = [ "Watching the starfish wave back and forth across the branches, you contemplate existence as a starfish.
+How would it feel?
+To be a starfish? 
+I speak, but with no mouth,
+*The starfishes wave under the duress of a vacant wind*
+No, that’s not my anus, that’s my mouth." ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="NPC"]
-modulate = Color( 1, 0.819608, 0, 1 )
+scale = Vector2( 0.115, 0.115 )
 texture = ExtResource( 2 )

@@ -67,8 +67,15 @@ func read_dialog(text, speed=1):
 	yield($GUI/DialogViewer.read_dialog(text, speed), "completed")
 
 func give_action(action):
+	if has_action(action):
+		return
+	yield(read_dialog("You gain [%s]" % Actions.Titles[action]), "completed")
 	$GUI/ActionSelector.allowed_actions.append(action)
 	$GUI/ActionSelector.queue_clear = true
+	yield(reset_loop(), "completed")
+
+func has_action(action):
+	return $GUI/ActionSelector.allowed_actions.find(action) != -1
 
 func read_random_dialog():
 	yield(read_dialog(empty_dialog[randi() % empty_dialog.size()]), "completed")
