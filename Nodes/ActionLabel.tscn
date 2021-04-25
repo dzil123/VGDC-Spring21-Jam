@@ -30,6 +30,10 @@ selected_action_textures = [ ExtResource( 7 ), ExtResource( 1 ), ExtResource( 5 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = -1.0
+margin_bottom = -1.0
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 6

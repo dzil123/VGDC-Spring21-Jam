@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Scribble.shader" type="Shader" id=1]
+[ext_resource path="res://Assets/45e1265ab27393903ca3faea493f5a54.jpg" type="Texture" id=2]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/strength = 0.05
+shader_param/speed = 5.0
+shader_param/frames = 4
+shader_param/flowMap = ExtResource( 2 )

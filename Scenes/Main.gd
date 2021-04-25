@@ -64,6 +64,10 @@ func run_action_sequence():
 # triggerable from the player
 
 func read_dialog(text, speed=1):
+	if typeof(text) == TYPE_ARRAY:
+		for item in text:
+			yield(read_dialog(item, speed), "completed")
+		return
 	yield($GUI/DialogViewer.read_dialog(text, speed), "completed")
 
 func give_action(action):

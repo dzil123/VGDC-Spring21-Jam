@@ -24,12 +24,26 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource( 4 )
 interact_dialog = [ "You see a tree with starfish littered across its branches." ]
-converse_dialog = [ "The starfish gives you a chainsaw" ]
-special_dialog_todo = [ "Watching the starfish wave back and forth across the branches, you contemplate existence as a starfish.
-How would it feel?
+converse_dialog = [ "Oh Great Tree of Wisdom
+Tree of knowledge and stars
+Why am I stuck in this forever loop
+Why ", "...", "..." ]
+strap_one_on_dialog = [ "You walk up to the tree
+Attempting to strap the tree to yourself
+To strap yourself to the tree
+But the tree rejects you
+Alas
+Do not fear
+Do not falter
+Your strap doesn’t want the tree anyways
+The tree shakes, with fear in its heart.
+Screw You Tree
+Your strap says" ]
+gain_converse_dialog = [ "Watching the starfish wave back and forth across the branches, you contemplate existence as a starfish.
+How would it feel
 To be a starfish? 
 I speak, but with no mouth,
-*The starfishes wave under the duress of a vacant wind*
+The starfishes wave under the duress of a vacant wind
 No, that’s not my anus, that’s my mouth." ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]

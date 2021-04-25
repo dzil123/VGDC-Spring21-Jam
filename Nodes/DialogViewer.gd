@@ -8,7 +8,6 @@ func _ready():
 	clear()
 
 func clear():
-	return
 	end_tween()
 
 	$RichTextLabel.bbcode_text = ""
@@ -17,11 +16,10 @@ func clear():
 	$ContinueButton.disabled = true
 
 func end_tween():
-	$Tween.stop_all()
+	$Tween.remove_all()
 	$RichTextLabel.visible_characters = -1
 
 func read_dialog(dialog, speed=1):
-	return
 	$RichTextLabel.bbcode_text = dialog
 	$RichTextLabel.visible_characters = 0
 	var num_chars = dialog.length()
@@ -47,9 +45,11 @@ func read_dialog(dialog, speed=1):
 #	yield($Tween, "tween_all_completed")
 
 func _on_Tween_tween_all_completed():
+	print("tween completed")
 	emit_signal("dialog_completed")
 
 func _on_ContinueButton_pressed():
+	print("continue pressed")
 	emit_signal("dialog_completed")
 
 func _on_Main_Game_stop_running():
