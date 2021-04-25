@@ -48,7 +48,10 @@ func get_player():
 func run_action_sequence():
 	var actions = $GUI/ActionSelector.selected_actions
 
-	for action in actions:
+	for action_index in range(actions.size()):
+		$GUI/ActionSelector.highlight(action_index)
+		var action = actions[action_index]
+
 		print("sending action to player %s" % action)
 		yield(get_player().apply_action(self, action), "completed")
 
@@ -58,7 +61,8 @@ func run_action_sequence():
 			break
 
 	print("done")
-	yield(get_tree().create_timer(2.0), "timeout")
+	$GUI/ActionSelector.highlight(-1)
+	yield(get_tree().create_timer(1.0), "timeout")
 	emit_signal("stop_running")
 
 # triggerable from the player

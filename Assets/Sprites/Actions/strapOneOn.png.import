@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arrowUp.png-27ba8ff15b716a8e783e7673d187003e.stex"
+path="res://.import/strapOneOn.png-2a92df26841b6974e9e5b9780fdc7ee6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/arrowUp.png"
-dest_files=[ "res://.import/arrowUp.png-27ba8ff15b716a8e783e7673d187003e.stex" ]
+source_file="res://Assets/Sprites/Actions/strapOneOn.png"
+dest_files=[ "res://.import/strapOneOn.png-2a92df26841b6974e9e5b9780fdc7ee6.stex" ]
 
 [params]
 

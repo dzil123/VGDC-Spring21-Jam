@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/converse.png-28f1554f24dd16c6834320d50dbde65b.stex"
+path="res://.import/destroy.png-ab022bbb696878985e06c9cb5e8fa916.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/converse.png"
-dest_files=[ "res://.import/converse.png-28f1554f24dd16c6834320d50dbde65b.stex" ]
+source_file="res://Assets/Sprites/Actions/destroy.png"
+dest_files=[ "res://.import/destroy.png-ab022bbb696878985e06c9cb5e8fa916.stex" ]
 
 [params]
 

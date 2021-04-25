@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/starfish_tree.png-a154e2f881adfa89dc9fe0df7fc55063.stex"
+path="res://.import/thonk.png-f5e1d77b3ad186fef75d3ac5445c8088.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/starfish_tree.png"
-dest_files=[ "res://.import/starfish_tree.png-a154e2f881adfa89dc9fe0df7fc55063.stex" ]
+source_file="res://thonk.png"
+dest_files=[ "res://.import/thonk.png-f5e1d77b3ad186fef75d3ac5445c8088.stex" ]
 
 [params]
 

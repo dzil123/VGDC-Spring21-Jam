@@ -1,6 +1,6 @@
 extends Area2D
 
-var tile_size = 64
+var tile_size = 160
 var delay_time = 0.75
 var game
 
@@ -55,9 +55,6 @@ func apply_action(game, action):
 			yield(move(Vector2.LEFT), "completed")
 		Actions.WalkRight:
 			yield(move(Vector2.RIGHT), "completed")
-		Actions.StrapOn:
-			$AudioStrapOneOn.play()
-			yield($AudioStrapOneOn, "finished")
 		Actions.Converse:
 			var object = get_object_on_top()
 			if object == null:
@@ -65,14 +62,22 @@ func apply_action(game, action):
 			else:
 				yield(object.converse(game, self), "completed")
 		Actions.StrapOn:
+			$AudioStrapOneOn.play()
 			var object = get_object_on_top()
 			if object == null:
+#				yield($AudioStrapOneOn, "finished")
 				yield(game.read_dialog("What are you trying to strap one on?"), "completed")
 			else:
 				yield(object.strap_one_on(game, self), "completed")
-		_:
-			print("unmatched action! %s" % action)
-			yield(get_tree().create_timer(delay_time), "timeout")
+		Actions.Destroy:
+			var object = get_object_on_top()
+			if object == null:
+				yield(game.read_dialog("You destroy the emptiness, but it only creates more emptiness"), "completed")
+			else:
+				yield(object.destroy(game, self), "completed")
+		var _other:
+			yield(game.read_dialog("unmatched action! %s" % action), "completed")
+#			yield(get_tree().create_timer(delay_time), "timeout")
 
 func wait_for_tween():
 	$Tween.start()

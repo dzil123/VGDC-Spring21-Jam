@@ -1,31 +1,23 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Assets/Sprites/arrowDown.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Actions/arrowDown.png" type="Texture" id=1]
 [ext_resource path="res://Nodes/ActionLabel.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Sprites/arrowRight.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/strapOneOn.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sprites/arrowLeft.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprites/converse.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sprites/arrowUp.png" type="Texture" id=7]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 1, 1, 1, 1 )
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color( 0, 0, 0, 1 )
-corner_detail = 20
+[ext_resource path="res://Assets/Sprites/Actions/arrowRight.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Actions/strapOneOn.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Actions/arrowLeft.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Actions/converse.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Actions/arrowUp.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Actions/destroy.png" type="Texture" id=8]
 
 [node name="Panel" type="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-selected_action_textures = [ ExtResource( 7 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ) ]
+selected_action_textures = [ ExtResource( 7 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 8 ) ]
+highlight_enable = Color( 1, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0

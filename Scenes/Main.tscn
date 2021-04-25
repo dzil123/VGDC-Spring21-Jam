@@ -14,6 +14,7 @@ levels = [ ExtResource( 1 ) ]
 empty_dialog = [ "You come across 2 bunnies wrestling each other. They knocked each other out.", "There were over 500 starfish in the trees. One of them flew away. Now, they’re only 499 of them.", "The doll spun around in circles hoping to come alive. She got a headache and broke her legs.", "The fish listened intently to what the frogs had to say. The frogs spoke with much wisdom in them.", "You see a crying banana rolling on the floor. The giant monkey ate all of his friends.", "A pig is enjoying her hamburger. She couldn’t help it, her dad was delicious.", "The tree bark barks at you. You bark at the tree back. The tree stops barking at you.", "You see a group of squirrels breaks dancing. Their moves are good, but their formation is sloppy.", "The blade of grass turned red. It must be embarrassed.", "Reese Wither spoon lost her favorite spoon in the Battle of Winter hold. That now makes her Reese Without Her Spoon.", "The team members were hard to tell apart since they all wore their hair in a ponytail. They couldn’t tell if they won or lost the match.", "Green should have smelled more tranquil, but somehow it just tasted rotten. Some extra cinnamon should do the trick.", "Peanut butter and jelly caused the elderly lady to think about her past. The horror never stops.", "The best part of marriage is animal crackers and ice cream. Why would any get married otherwise?", "He loved eating his bananas in hot dog buns. Peeling them would be absolutely barbaric.", "Harrold felt confident that nobody would ever suspect his spy pigeon. Everyone knew the spy pigeon was Harold’s.", "Harrold felt confident that nobody would ever suspect his spy pigeon. Everyone knew the spy pigeon was Harold’s.", "She says she can hear the soundtrack of life. Heavy Metal mixed with dubstep.", "The block of cheese has been eyeing you all day and waiting for your move like a lion stalking a gazelle in a savannah.", "The spider took one look at what was under the table and ran the hell out of there.", "The green tea and avocado smoothie turned out exactly as expected. It was better than the chocolate ketchup.", "Stop waiting for exceptional things to just happen. They’ve already happened.", "The sheep was sure the Devil created red sparkly glitter. The glitter was so sparkly.", "For the 216th time, Steve said he would quit drinking soda after this last Coke.", "It was the first time he had ever seen someone cook dinner on an elephant. That made the meal all the more delicious." ]
 
 [node name="LevelHolder" type="Node2D" parent="."]
+position = Vector2( 50, 20 )
 
 [node name="Level1" parent="LevelHolder" instance=ExtResource( 1 )]
 
@@ -34,15 +35,15 @@ __meta__ = {
 
 [node name="Top" type="Panel" parent="GUI"]
 anchor_right = 1.0
-margin_bottom = 50.0
+margin_bottom = 20.0
 
 [node name="ActionSelector" type="Panel" parent="GUI"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 50.0
-margin_top = -250.0
-margin_right = -300.0
+margin_top = -160.0
+margin_right = -430.0
 grow_horizontal = 2
 script = ExtResource( 3 )
 __meta__ = {
@@ -55,8 +56,9 @@ action_label_node = ExtResource( 5 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -40.0
-margin_bottom = -5.0
+margin_top = -64.0
+margin_right = -78.0
+margin_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
 custom_constants/separation = 10
@@ -66,9 +68,9 @@ __meta__ = {
 }
 
 [node name="ActionButton" parent="GUI/ActionSelector/AllowedActions" instance=ExtResource( 4 )]
-margin_left = 442.0
-margin_right = 487.0
-margin_bottom = 39.0
+margin_left = 330.0
+margin_right = 392.0
+margin_bottom = 54.0
 text = "strap"
 
 [node name="SelectedActions" type="GridContainer" parent="GUI/ActionSelector"]
@@ -89,7 +91,7 @@ anchor_bottom = 0.0
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -70.0
-margin_top = 5.0
+margin_top = 10.0
 margin_right = -5.0
 grow_horizontal = 0
 text = "Clear"
@@ -101,7 +103,7 @@ __meta__ = {
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -70.0
-margin_top = 50.0
+margin_top = 70.0
 margin_right = -5.0
 margin_bottom = 50.0
 grow_horizontal = 0
@@ -115,7 +117,7 @@ visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -70.0
-margin_top = 50.0
+margin_top = 70.0
 margin_right = -5.0
 margin_bottom = 50.0
 text = "Stop"
@@ -127,7 +129,8 @@ __meta__ = {
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -300.0
+margin_left = -430.0
+margin_bottom = -140.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -139,7 +142,7 @@ anchor_bottom = 1.0
 margin_left = 10.0
 margin_top = 10.0
 margin_right = -10.0
-margin_bottom = -50.0
+margin_bottom = -75.0
 bbcode_enabled = true
 bbcode_text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi tempus imperdiet nulla malesuada pellentesque elit eget gravida cum. [rainbow freq=0.2 sat=1.2 val=2]Et tortor at risus viverra adipiscing at in. In eu mi bibendum neque egestas congue quisque.[/rainbow] [img]res://Assets/Sprites/arrowDown.png[/img]Lorem donec massa sapien faucibus et. Tempor orci eu lobortis elementum nibh tellus molestie nunc. Pellentesque adipiscing commodo elit at imperdiet. Neque egestas congue quisque egestas diam in arcu cursus. Fermentum leo vel orci porta. Porttitor lacus luctus accumsan tortor posuere. Pharetra diam sit amet nisl suscipit adipiscing bibendum. Mi sit amet mauris commodo quis imperdiet massa tincidunt nunc. Sem viverra aliquet eget sit amet. Dictum fusce ut placerat orci nulla pellentesque.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi tempus imperdiet nulla malesuada pellentesque elit eget gravida cum. Et tortor at risus viverra adipiscing at in. In eu mi bibendum neque egestas congue quisque. Lorem donec massa sapien faucibus et. Tempor orci eu lobortis elementum nibh tellus molestie nunc. Pellentesque adipiscing commodo elit at imperdiet. Neque egestas congue quisque egestas diam in arcu cursus. Fermentum leo vel orci porta. Porttitor lacus luctus accumsan tortor posuere. Pharetra diam sit amet nisl suscipit adipiscing bibendum. Mi sit amet mauris commodo quis imperdiet massa tincidunt nunc. Sem viverra aliquet eget sit amet. Dictum fusce ut placerat orci nulla pellentesque."
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi tempus imperdiet nulla malesuada pellentesque elit eget gravida cum. Et tortor at risus viverra adipiscing at in. In eu mi bibendum neque egestas congue quisque. Lorem donec massa sapien faucibus et. Tempor orci eu lobortis elementum nibh tellus molestie nunc. Pellentesque adipiscing commodo elit at imperdiet. Neque egestas congue quisque egestas diam in arcu cursus. Fermentum leo vel orci porta. Porttitor lacus luctus accumsan tortor posuere. Pharetra diam sit amet nisl suscipit adipiscing bibendum. Mi sit amet mauris commodo quis imperdiet massa tincidunt nunc. Sem viverra aliquet eget sit amet. Dictum fusce ut placerat orci nulla pellentesque.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi tempus imperdiet nulla malesuada pellentesque elit eget gravida cum. Et tortor at risus viverra adipiscing at in. In eu mi bibendum neque egestas congue quisque. Lorem donec massa sapien faucibus et. Tempor orci eu lobortis elementum nibh tellus molestie nunc. Pellentesque adipiscing commodo elit at imperdiet. Neque egestas congue quisque egestas diam in arcu cursus. Fermentum leo vel orci porta. Porttitor lacus luctus accumsan tortor posuere. Pharetra diam sit amet nisl suscipit adipiscing bibendum. Mi sit amet mauris commodo quis imperdiet massa tincidunt nunc. Sem viverra aliquet eget sit amet. Dictum fusce ut placerat orci nulla pellentesque."
@@ -153,9 +156,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -40.0
-margin_top = -45.0
+margin_top = -70.0
 margin_right = 38.0
-margin_bottom = -5.0
+margin_bottom = -10.0
 grow_horizontal = 2
 text = "Continue"
 __meta__ = {
@@ -164,12 +167,23 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="GUI/DialogViewer"]
 
+[node name="Inventory" type="Panel" parent="GUI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -430.0
+margin_top = -140.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="start_running" from="." to="." method="emit_signal" binds= [ "update_running", true ]]
-[connection signal="start_running" from="." to="GUI/ActionSelector" method="_on_Main_Game_start_running"]
 [connection signal="start_running" from="." to="GUI/DialogViewer" method="_on_Main_Game_start_running"]
+[connection signal="start_running" from="." to="GUI/ActionSelector" method="_on_Main_Game_start_running"]
 [connection signal="stop_running" from="." to="." method="emit_signal" binds= [ "update_running", false ]]
-[connection signal="stop_running" from="." to="GUI/ActionSelector" method="_on_Main_Game_stop_running"]
 [connection signal="stop_running" from="." to="GUI/DialogViewer" method="_on_Main_Game_stop_running"]
+[connection signal="stop_running" from="." to="GUI/ActionSelector" method="_on_Main_Game_stop_running"]
 [connection signal="pressed" from="GUI/ActionSelector/ClearButton" to="GUI/ActionSelector" method="_on_ClearButton_pressed"]
 [connection signal="pressed" from="GUI/ActionSelector/RunButton" to="." method="_on_RunButton_pressed"]
 [connection signal="pressed" from="GUI/ActionSelector/StopButton" to="." method="_on_StopButton_pressed"]

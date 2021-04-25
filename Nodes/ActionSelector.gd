@@ -7,7 +7,7 @@ onready var allowed_actions_container := get_node(@"AllowedActions")
 onready var selected_actions_container := get_node(@"SelectedActions")
 
 # these can be written and set by the game node
-var allowed_actions := [Actions.WalkUp, Actions.WalkDown, Actions.WalkLeft, Actions.WalkRight]
+var allowed_actions := [Actions.WalkUp, Actions.WalkDown, Actions.WalkLeft, Actions.WalkRight, Actions.Destroy]
 var max_actions := 8
 var selected_actions := []
 var queue_clear = false
@@ -39,6 +39,8 @@ func update_selected_actions():
 
 		selected_actions_container.add_child(label)
 
+	highlight(-1)
+
 	yield(get_tree(), "idle_frame")
 
 	for label in selected_actions_container.get_children():
@@ -49,6 +51,11 @@ func update_running(is_running):
 	$RunButton.visible = not is_running
 	$StopButton.visible = is_running
 	allowed_actions_container.propagate_call("set_disabled", [is_running])
+
+func highlight(index):
+	$SelectedActions.propagate_call("highlight", [false])
+	if index >= 0 and index < $SelectedActions.get_child_count():
+		$SelectedActions.get_child(index).highlight(true)
 
 func _on_action_button_pressed(action):
 	if selected_actions.size() >= max_actions:
