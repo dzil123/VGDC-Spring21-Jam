@@ -179,12 +179,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="start_running" from="." to="GUI/ActionSelector" method="_on_Main_Game_start_running"]
 [connection signal="start_running" from="." to="GUI/DialogViewer" method="_on_Main_Game_start_running"]
 [connection signal="start_running" from="." to="." method="emit_signal" binds= [ "update_running", true ]]
-[connection signal="stop_running" from="." to="GUI/ActionSelector" method="_on_Main_Game_stop_running"]
+[connection signal="start_running" from="." to="GUI/ActionSelector" method="_on_Main_Game_start_running"]
 [connection signal="stop_running" from="." to="GUI/DialogViewer" method="_on_Main_Game_stop_running"]
 [connection signal="stop_running" from="." to="." method="emit_signal" binds= [ "update_running", false ]]
+[connection signal="stop_running" from="." to="GUI/ActionSelector" method="_on_Main_Game_stop_running"]
 [connection signal="pressed" from="GUI/DialogViewer/ContinueButton" to="GUI/DialogViewer" method="_on_ContinueButton_pressed"]
 [connection signal="tween_all_completed" from="GUI/DialogViewer/Tween" to="GUI/DialogViewer" method="_on_Tween_tween_all_completed"]
 [connection signal="pressed" from="GUI/ActionSelector/ClearButton" to="GUI/ActionSelector" method="_on_ClearButton_pressed"]

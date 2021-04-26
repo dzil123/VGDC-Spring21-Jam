@@ -65,7 +65,7 @@ func run_action_sequence():
 			if queue_stop:
 				queue_stop = false
 				print("early stop")
-			break
+				break
 
 	print("done")
 	$GUI/ActionSelector.highlight(-1)
