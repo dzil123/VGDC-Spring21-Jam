@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/Sprites/NPCs/starfish_tree.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Nodes/NPCs/Fairy.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Sprites/NPCs/fairy.png" type="Texture" id=8]
 [ext_resource path="res://Nodes/NPCs/Empty.gd" type="Script" id=9]
+[ext_resource path="res://Nodes/NPCs/River.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Sprites/NPCs/river.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 70, 70 )
@@ -21,7 +23,7 @@ tile_set = ExtResource( 1 )
 cell_size = Vector2( 160, 160 )
 cell_quadrant_size = 1
 format = 1
-tile_data = PoolIntArray( -1, 2, 0, -65536, 2, 0, -65535, 2, 0, -65534, 2, 0, -65533, 2, 0, -65532, 2, 0, -65531, 2, 0, 65535, 2, 0, 1, 3, 0, 2, 3, 0, 3, 5, 0, 4, 1, 0, 5, 2, 0, 131071, 2, 0, 65536, 3, 0, 65537, 1, 0, 65538, 3, 0, 65539, 5, 0, 65540, 3, 0, 65541, 2, 0, 196607, 2, 0, 131072, 3, 0, 131073, 3, 0, 131074, 4, 0, 131075, 6, 0, 131076, 4, 0, 131077, 2, 0, 262143, 2, 0, 196608, 4, 0, 196609, 5, 0, 196610, 4, 0, 196611, 3, 0, 196612, 4, 0, 196613, 2, 0, 327679, 2, 0, 262144, 1, 0, 262145, 6, 0, 262146, 6, 0, 262147, 3, 0, 262148, 4, 0, 262149, 2, 0, 393215, 2, 0, 327680, 2, 0, 327681, 2, 0, 327682, 2, 0, 327683, 2, 0, 327684, 2, 0, 327685, 2, 0 )
+tile_data = PoolIntArray( -1, 2, 0, -65536, 2, 0, -65535, 2, 0, -65534, 2, 0, -65533, 2, 0, -65532, 2, 0, -65531, 2, 0, 65535, 2, 0, 1, 3, 0, 2, 3, 0, 3, 5, 0, 4, 1, 0, 5, 2, 0, 131071, 2, 0, 65536, 3, 0, 65537, 1, 0, 65538, 3, 0, 65539, 5, 0, 65540, 3, 0, 65541, 2, 0, 196607, 2, 0, 131072, 3, 0, 131073, 3, 0, 131074, 4, 0, 131075, 6, 0, 131076, 4, 0, 131077, 2, 0, 262143, 2, 0, 196608, 4, 0, 196609, 5, 0, 196610, 4, 0, 196611, 3, 0, 196612, 4, 0, 196613, 2, 0, 327679, 2, 0, 262144, 1, 0, 262145, 6, 0, 262146, 6, 0, 262148, 4, 0, 262149, 2, 0, 393215, 2, 0, 327680, 2, 0, 327681, 2, 0, 327682, 2, 0, 327683, 2, 0, 327684, 2, 0, 327685, 2, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 320, 320 )
@@ -222,3 +224,56 @@ All of your organs are in order" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Empty"]
 show_behind_parent = true
 shape = SubResource( 1 )
+
+[node name="River" type="Area2D" parent="."]
+position = Vector2( 560, 720 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 10 )
+interact_dialog = [ "You come across a river. 
+You are parched.
+When was the last time you drank?" ]
+converse_dialog = [ "You lower your head to the waters
+You speak in the language of the  waters
+The river splashes you" ]
+strap_one_on_dialog = [ "You lower your strap into the river
+Angling to strap the river to yourself
+But suddenly, the river reaches out and takes your strap
+“Hey, what gives.”
+You shout
+A man rises from the river.
+He says
+“Great, you again.”
+“Can you stop messing with your strap for one moment?”
+“Ugh, so. Did you drop the golden strap, or the silver strap.”
+You stare at the man
+“Give me my strap back”
+He answers quickly
+“The golden one right? You want the golden strap”
+“No, I want MY strap”
+The man tosses your strap back at you
+“Jesus, when are you going to leave this place”" ]
+destroy_dialog = [ "You slam your fist down, trying to destroy the river
+The river moved
+You try slamming your fist into the river again
+The river moved
+You give up
+The river points to the west" ]
+introspect_dialog = [ "You look inside yourself
+There’s a river inside you as well
+The river speeds up as you watch it
+It goes faster and faster
+You begin to heat up
+Better cool down
+You step into the river
+Jeez, not that river
+The river outside your body" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="River"]
+show_behind_parent = true
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="River"]
+scale = Vector2( 0.625, 0.625 )
+texture = ExtResource( 11 )
+region_rect = Rect2( 1, 1, 510, 510 )

@@ -48,16 +48,23 @@ func get_player():
 func run_action_sequence():
 	var actions = $GUI/ActionSelector.selected_actions
 
-	for action_index in range(actions.size()):
-		$GUI/ActionSelector.highlight(action_index)
-		var action = actions[action_index]
+	var konami_code = [Actions.WalkUp, Actions.WalkUp, Actions.WalkDown, Actions.WalkDown, \
+					   Actions.WalkLeft, Actions.WalkRight, Actions.WalkLeft, Actions.WalkRight]
+	if actions == konami_code:
+		yield(read_dialog("You cheater..."), "completed")
+		for action in [Actions.Converse, Actions.StrapOn, Actions.Destroy, Actions.Introspection]:
+			yield(give_action(action), "completed")
+	else:
+		for action_index in range(actions.size()):
+			$GUI/ActionSelector.highlight(action_index)
+			var action = actions[action_index]
 
-		print("sending action to player %s" % action)
-		yield(get_player().apply_action(self, action), "completed")
+			print("sending action to player %s" % action)
+			yield(get_player().apply_action(self, action), "completed")
 
-		if queue_stop:
-			queue_stop = false
-			print("early stop")
+			if queue_stop:
+				queue_stop = false
+				print("early stop")
 			break
 
 	print("done")

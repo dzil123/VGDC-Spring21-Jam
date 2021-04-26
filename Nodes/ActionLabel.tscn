@@ -8,7 +8,10 @@
 [ext_resource path="res://Assets/Sprites/Actions/converse.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/Actions/arrowUp.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/Actions/destroy.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sprites/Actions/thonk.png" type="Texture" id=9]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/thonk.png-88ee597c73ecbee041510ce07533a5f3.stex"
 
 [node name="Panel" type="Panel"]
 anchor_right = 1.0
@@ -17,7 +20,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-selected_action_textures = [ ExtResource( 7 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 9 ) ]
+selected_action_textures = [ ExtResource( 7 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 8 ), SubResource( 1 ) ]
 highlight_enable = Color( 1, 0, 0, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
