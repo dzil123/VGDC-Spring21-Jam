@@ -12,6 +12,9 @@
 script = ExtResource( 6 )
 levels = [ ExtResource( 1 ) ]
 empty_dialog = [ "You come across 2 bunnies wrestling each other. They knocked each other out.", "There were over 500 starfish in the trees. One of them flew away. Now, they’re only 499 of them.", "The doll spun around in circles hoping to come alive. She got a headache and broke her legs.", "The fish listened intently to what the frogs had to say. The frogs spoke with much wisdom in them.", "You see a crying banana rolling on the floor. The giant monkey ate all of his friends.", "A pig is enjoying her hamburger. She couldn’t help it, her dad was delicious.", "The tree bark barks at you. You bark at the tree back. The tree stops barking at you.", "You see a group of squirrels breaks dancing. Their moves are good, but their formation is sloppy.", "The blade of grass turned red. It must be embarrassed.", "Reese Wither spoon lost her favorite spoon in the Battle of Winter hold. That now makes her Reese Without Her Spoon.", "The team members were hard to tell apart since they all wore their hair in a ponytail. They couldn’t tell if they won or lost the match.", "Green should have smelled more tranquil, but somehow it just tasted rotten. Some extra cinnamon should do the trick.", "Peanut butter and jelly caused the elderly lady to think about her past. The horror never stops.", "The best part of marriage is animal crackers and ice cream. Why would any get married otherwise?", "He loved eating his bananas in hot dog buns. Peeling them would be absolutely barbaric.", "Harrold felt confident that nobody would ever suspect his spy pigeon. Everyone knew the spy pigeon was Harold’s.", "Harrold felt confident that nobody would ever suspect his spy pigeon. Everyone knew the spy pigeon was Harold’s.", "She says she can hear the soundtrack of life. Heavy Metal mixed with dubstep.", "The block of cheese has been eyeing you all day and waiting for your move like a lion stalking a gazelle in a savannah.", "The spider took one look at what was under the table and ran the hell out of there.", "The green tea and avocado smoothie turned out exactly as expected. It was better than the chocolate ketchup.", "Stop waiting for exceptional things to just happen. They’ve already happened.", "The sheep was sure the Devil created red sparkly glitter. The glitter was so sparkly.", "For the 216th time, Steve said he would quit drinking soda after this last Coke.", "It was the first time he had ever seen someone cook dinner on an elephant. That made the meal all the more delicious." ]
+win_dialog = [ "Congratulations, you've broken the time loop!
+
+Lets jam!" ]
 
 [node name="LevelHolder" type="Node2D" parent="."]
 position = Vector2( 50, 20 )
@@ -179,11 +182,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="start_running" from="." to="GUI/DialogViewer" method="_on_Main_Game_start_running"]
 [connection signal="start_running" from="." to="." method="emit_signal" binds= [ "update_running", true ]]
+[connection signal="start_running" from="." to="GUI/DialogViewer" method="_on_Main_Game_start_running"]
 [connection signal="start_running" from="." to="GUI/ActionSelector" method="_on_Main_Game_start_running"]
-[connection signal="stop_running" from="." to="GUI/DialogViewer" method="_on_Main_Game_stop_running"]
 [connection signal="stop_running" from="." to="." method="emit_signal" binds= [ "update_running", false ]]
+[connection signal="stop_running" from="." to="GUI/DialogViewer" method="_on_Main_Game_stop_running"]
 [connection signal="stop_running" from="." to="GUI/ActionSelector" method="_on_Main_Game_stop_running"]
 [connection signal="pressed" from="GUI/DialogViewer/ContinueButton" to="GUI/DialogViewer" method="_on_ContinueButton_pressed"]
 [connection signal="tween_all_completed" from="GUI/DialogViewer/Tween" to="GUI/DialogViewer" method="_on_Tween_tween_all_completed"]

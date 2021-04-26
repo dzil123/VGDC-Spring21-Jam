@@ -3,12 +3,15 @@ extends Area2D
 var tile_size = 160
 var delay_time = 0.75
 var game
+var has_moved = false
 
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size / 2
 
 func move(dir: Vector2):
+	has_moved = true
+
 	var initial_position = position
 
 	dir *= tile_size
@@ -64,17 +67,20 @@ func apply_action(game, action):
 		Actions.StrapOn:
 			$AudioStrapOneOn.play()
 			var object = get_object_on_top()
-			if object == null:
-#				yield($AudioStrapOneOn, "finished")
+			if (object != null) and (has_moved):
+				yield(object.strap_one_on(game, self), "completed")
+			elif has_moved:
 				yield(game.read_dialog("What are you trying to strap one on?"), "completed")
 			else:
-				yield(object.strap_one_on(game, self), "completed")
+				yield(get_tree().create_timer(0.1), "timeout")
+
 		Actions.Destroy:
 			var object = get_object_on_top()
 			if object == null:
 				yield(game.read_dialog("You destroy the emptiness,\nbut it only creates more emptiness"), "completed")
 			else:
 				yield(object.destroy(game, self), "completed")
+
 		Actions.Introspection:
 			var object = get_object_on_top()
 			if object == null:

@@ -66,8 +66,8 @@ You slam the starfish tree
 The starfish tree shatters
 The starfish are now free to leave
 They fly around you, happily
-And speak one final word
-“Strap”
+And speak its final words
+“Strap One On”
 And smother your face with their mouths" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StarfishTree"]
@@ -176,8 +176,9 @@ Your right arm
 Because your right arm is a lot stronger than your left arm
 You crush the jar
 The jar is broken
-As is the fairy
-They are silent" ]
+As is the fairy", "The fairy says
+“end / move / Don't / loop / the / at / the / of”
+“Stay / are / you / where”" ]
 introspect_dialog = [ "You reflect upon yourself
 Who is the prisoner here
 The jar

@@ -35,4 +35,4 @@ playback_process_mode = 0
 
 [node name="AudioStrapOneOn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -21.01
+volume_db = -5.0

@@ -21,8 +21,9 @@ _global_script_class_icons={
 [application]
 
 config/name="StrapOneOn"
+config/description="Strap One On, it's Time To Jam!"
 run/main_scene="res://Scenes/Main.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/Sprites/Actions/thonk.png"
 
 [display]
 

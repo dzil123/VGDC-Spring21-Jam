@@ -7,6 +7,7 @@ signal update_running(is_running)
 
 export(Array, PackedScene) var levels
 export(Array, String) var empty_dialog
+export(Array, String, MULTILINE) var win_dialog
 var current_level: int
 
 var is_running = false
@@ -45,27 +46,38 @@ func stop_running():
 func get_player():
 	return $LevelHolder.get_child(0).get_node("Player")
 
+var konami_code = [Actions.WalkUp, Actions.WalkUp, Actions.WalkDown, Actions.WalkDown, \
+				   Actions.WalkLeft, Actions.WalkRight, Actions.WalkLeft, Actions.WalkRight]
+
+var win_condition = [Actions.StrapOn, Actions.StrapOn, Actions.StrapOn, Actions.StrapOn, \
+					 Actions.StrapOn, Actions.StrapOn, Actions.StrapOn, Actions.StrapOn]
+
 func run_action_sequence():
 	var actions = $GUI/ActionSelector.selected_actions
 
-	var konami_code = [Actions.WalkUp, Actions.WalkUp, Actions.WalkDown, Actions.WalkDown, \
-					   Actions.WalkLeft, Actions.WalkRight, Actions.WalkLeft, Actions.WalkRight]
-	if actions == konami_code:
-		yield(read_dialog("You cheater..."), "completed")
-		for action in [Actions.Converse, Actions.StrapOn, Actions.Destroy, Actions.Introspection]:
-			yield(give_action(action), "completed")
-	else:
-		for action_index in range(actions.size()):
-			$GUI/ActionSelector.highlight(action_index)
-			var action = actions[action_index]
 
-			print("sending action to player %s" % action)
-			yield(get_player().apply_action(self, action), "completed")
+	var exited_early = false
+	for action_index in range(actions.size()):
+		$GUI/ActionSelector.highlight(action_index)
+		var action = actions[action_index]
 
-			if queue_stop:
-				queue_stop = false
-				print("early stop")
-				break
+		print("sending action to player %s" % action)
+		yield(get_player().apply_action(self, action), "completed")
+
+		if queue_stop:
+			queue_stop = false
+			print("early stop")
+			break
+
+	if not exited_early:
+		if actions == konami_code:
+			yield(read_dialog("You cheater..."), "completed")
+			for action in [Actions.Converse, Actions.StrapOn, Actions.Destroy, Actions.Introspection]:
+				yield(give_action(action), "completed")
+		elif actions == win_condition:
+			yield(read_dialog(win_dialog), "completed")
+			yield(get_tree().create_timer(1.0), "timeout")
+			get_tree().quit()
 
 	print("done")
 	$GUI/ActionSelector.highlight(-1)
