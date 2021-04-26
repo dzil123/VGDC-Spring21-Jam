@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/Sprites/NPCs/starfish_tree.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Nodes/NPCs/Chainsawlibur.gd" type="Script" id=6]
 [ext_resource path="res://Nodes/NPCs/Fairy.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Sprites/NPCs/fairy.png" type="Texture" id=8]
+[ext_resource path="res://Nodes/NPCs/Empty.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 70, 70 )
@@ -20,7 +21,7 @@ tile_set = ExtResource( 1 )
 cell_size = Vector2( 160, 160 )
 cell_quadrant_size = 1
 format = 1
-tile_data = PoolIntArray( -1, 2, 0, -65536, 2, 0, -65535, 2, 0, -65534, 2, 0, -65533, 2, 0, -65532, 2, 0, -65531, 2, 0, 65535, 2, 0, 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 5, 0, 4, 1, 0, 5, 2, 0, 131071, 2, 0, 65536, 3, 0, 65537, 1, 0, 65538, 3, 0, 65539, 5, 0, 65540, 3, 0, 65541, 2, 0, 196607, 2, 0, 131072, 3, 0, 131073, 3, 0, 131074, 4, 0, 131075, 6, 0, 131076, 4, 0, 131077, 2, 0, 262143, 2, 0, 196608, 4, 0, 196609, 5, 0, 196610, 4, 0, 196611, 3, 0, 196612, 4, 0, 196613, 2, 0, 327679, 2, 0, 262144, 1, 0, 262145, 6, 0, 262146, 6, 0, 262147, 3, 0, 262148, 4, 0, 262149, 2, 0, 393215, 2, 0, 327680, 2, 0, 327681, 2, 0, 327682, 2, 0, 327683, 2, 0, 327684, 2, 0, 327685, 2, 0 )
+tile_data = PoolIntArray( -1, 2, 0, -65536, 2, 0, -65535, 2, 0, -65534, 2, 0, -65533, 2, 0, -65532, 2, 0, -65531, 2, 0, 65535, 2, 0, 1, 3, 0, 2, 3, 0, 3, 5, 0, 4, 1, 0, 5, 2, 0, 131071, 2, 0, 65536, 3, 0, 65537, 1, 0, 65538, 3, 0, 65539, 5, 0, 65540, 3, 0, 65541, 2, 0, 196607, 2, 0, 131072, 3, 0, 131073, 3, 0, 131074, 4, 0, 131075, 6, 0, 131076, 4, 0, 131077, 2, 0, 262143, 2, 0, 196608, 4, 0, 196609, 5, 0, 196610, 4, 0, 196611, 3, 0, 196612, 4, 0, 196613, 2, 0, 327679, 2, 0, 262144, 1, 0, 262145, 6, 0, 262146, 6, 0, 262147, 3, 0, 262148, 4, 0, 262149, 2, 0, 393215, 2, 0, 327680, 2, 0, 327681, 2, 0, 327682, 2, 0, 327683, 2, 0, 327684, 2, 0, 327685, 2, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 320, 320 )
@@ -52,6 +53,20 @@ To be a starfish?
 I speak, but with no mouth,
 The starfishes wave under the duress of a vacant wind
 No, that’s not my anus, that’s my mouth." ]
+introspect_dialog = [ "You look within yourself
+It’s still the same organs
+You stick your head into the tree
+You seen an endless loop of straps
+Why isn’t it starfish
+You wonder" ]
+destroy_dialog = [ "Slam
+You slam the starfish tree
+The starfish tree shatters
+The starfish are now free to leave
+They fly around you, happily
+And speak one final word
+“Strap”
+And smother your face with their mouths" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StarfishTree"]
 show_behind_parent = true
@@ -86,7 +101,40 @@ But
 The Chainsawlibur deems you unworthy
 It spins, it spins and cuts and spins
 “Shitlibur”" ]
-strap_one_on_already_destroy_dialog = [ "You already have the Power To Destroy, why are you still here?" ]
+strap_one_on_already_destroy_dialog = [ "You scamper up to the Chainsawlibur
+Eyes red with longing
+“I can’t believe my eyeslibur”
+“It’s the great Chainsawlibur”
+“The chainsaw of the stonelibur”
+“I must stop rhyming”
+You reach for your strap
+You reach for the Chainsawlibur
+You must have itbur
+But
+The Chainsawlibur deems you unworthy
+It spins, it spins and cuts and spins
+“Shitlibur”", "You already have the Power To Destroy, why are you still here?" ]
+introspect_dialog = [ "This chainsawlibur can only bring tragedy in the world
+But blood only begets blood
+I must stop the cycle
+I’ll kill all those that opposes me
+And preach my ways to prevent retaliation
+This chainsawlibur can not be allowed to exist" ]
+destroy_dialog = [ "You stare at the Chainsawlibur with hatred
+This weapon has sinned
+It is not worthy to be held within a stone
+It needs to be purged, lest it corrupt others
+You raise your fist
+And beat the chainsawlibur
+It shatters into pieces
+You shatter the pieces into further pieces
+You repeat
+Repeat
+Repeat
+Repeat
+while (true)
+	Repeat
+	shout(“REPEAT”)" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chainsawlibur"]
 show_behind_parent = true
@@ -128,6 +176,13 @@ You crush the jar
 The jar is broken
 As is the fairy
 They are silent" ]
+introspect_dialog = [ "You reflect upon yourself
+Who is the prisoner here
+The jar
+Or the fairy
+Or is it you
+Are you a prisoner of this world
+Or is this world your prisoner" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fairy"]
 show_behind_parent = true
@@ -136,3 +191,34 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="Fairy"]
 texture = ExtResource( 8 )
 region_rect = Rect2( 1, 1, 510, 510 )
+
+[node name="Empty" type="Area2D" parent="."]
+position = Vector2( 80, 80 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 9 )
+interact_dialog = [ "Empty" ]
+gain_introspect_dialog = [ "You walked across the empty
+There’s is no living here, besides empty
+There is no words here, besides empty
+There is no here, besides empty
+This is too empty
+You must stop the empty
+Where is it not empty?
+You frantically look around, but all you see is empty.
+You turn your eyeballs around
+Ah
+Now you don’t see empty anymore
+You see yourself" ]
+converse_dialog = [ "Hello
+Said the emptiness", "Just kidding
+Emptiness can’t speak" ]
+strap_one_on_dialog = [ "Strap what on?
+There’s nothing here" ]
+destroy_dialog = [ "Don’t do this here, do it elsewhere" ]
+introspect_dialog = [ "You turn your eyes back into your skull again
+All of your organs are in order" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Empty"]
+show_behind_parent = true
+shape = SubResource( 1 )

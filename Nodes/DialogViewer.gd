@@ -2,7 +2,7 @@ extends Panel
 
 signal dialog_completed
 
-var time_per_char = 0.01
+var time_per_char = 0.02
 
 func _ready():
 	clear()
@@ -20,6 +20,7 @@ func end_tween():
 	$RichTextLabel.visible_characters = -1
 
 func read_dialog(dialog, speed=1):
+	dialog = modify_dialog(dialog)
 	$RichTextLabel.bbcode_text = dialog
 	$RichTextLabel.visible_characters = 0
 	var num_chars = dialog.length()
@@ -43,6 +44,10 @@ func read_dialog(dialog, speed=1):
 #func wait_for_tween():
 #	$Tween.start()
 #	yield($Tween, "tween_all_completed")
+
+func modify_dialog(dialog):
+	var ZWS = "\u200b".repeat(30)
+	return dialog.replace("\n", "\n" + ZWS)
 
 func _on_Tween_tween_all_completed():
 	print("tween completed")

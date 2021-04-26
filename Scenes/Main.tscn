@@ -179,11 +179,11 @@ __meta__ = {
 }
 
 [connection signal="start_running" from="." to="." method="emit_signal" binds= [ "update_running", true ]]
-[connection signal="start_running" from="." to="GUI/DialogViewer" method="_on_Main_Game_start_running"]
 [connection signal="start_running" from="." to="GUI/ActionSelector" method="_on_Main_Game_start_running"]
+[connection signal="start_running" from="." to="GUI/DialogViewer" method="_on_Main_Game_start_running"]
 [connection signal="stop_running" from="." to="." method="emit_signal" binds= [ "update_running", false ]]
-[connection signal="stop_running" from="." to="GUI/DialogViewer" method="_on_Main_Game_stop_running"]
 [connection signal="stop_running" from="." to="GUI/ActionSelector" method="_on_Main_Game_stop_running"]
+[connection signal="stop_running" from="." to="GUI/DialogViewer" method="_on_Main_Game_stop_running"]
 [connection signal="pressed" from="GUI/ActionSelector/ClearButton" to="GUI/ActionSelector" method="_on_ClearButton_pressed"]
 [connection signal="pressed" from="GUI/ActionSelector/RunButton" to="." method="_on_RunButton_pressed"]
 [connection signal="pressed" from="GUI/ActionSelector/StopButton" to="." method="_on_StopButton_pressed"]

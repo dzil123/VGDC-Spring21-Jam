@@ -76,6 +76,7 @@ func read_dialog(text, speed=1):
 
 func give_action(action):
 	if has_action(action):
+		yield(get_tree().create_timer(0.0), "timeout")
 		return
 	yield(read_dialog("You gain [%s]" % Actions.Titles[action]), "completed")
 	$GUI/ActionSelector.allowed_actions.append(action)

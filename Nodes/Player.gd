@@ -72,12 +72,17 @@ func apply_action(game, action):
 		Actions.Destroy:
 			var object = get_object_on_top()
 			if object == null:
-				yield(game.read_dialog("You destroy the emptiness, but it only creates more emptiness"), "completed")
+				yield(game.read_dialog("You destroy the emptiness,\nbut it only creates more emptiness"), "completed")
 			else:
 				yield(object.destroy(game, self), "completed")
+		Actions.Introspection:
+			var object = get_object_on_top()
+			if object == null:
+				yield(game.read_dialog("You look within yourself,\nand you are satisfied"), "completed")
+			else:
+				yield(object.introspect(game, self), "completed")
 		var _other:
 			yield(game.read_dialog("unmatched action! %s" % action), "completed")
-#			yield(get_tree().create_timer(delay_time), "timeout")
 
 func wait_for_tween():
 	$Tween.start()

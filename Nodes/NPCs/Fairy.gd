@@ -4,6 +4,7 @@ export(Array, String, MULTILINE) var interact_dialog
 export(Array, String, MULTILINE) var converse_dialog
 export(Array, String, MULTILINE) var strap_one_on_dialog
 export(Array, String, MULTILINE) var destroy_dialog
+export(Array, String, MULTILINE) var introspect_dialog
 
 func interact(game, player):
 	yield(game.read_dialog(interact_dialog), "completed")
@@ -20,3 +21,6 @@ func strap_one_on(game, player):
 
 func destroy(game, player):
 	yield(game.read_dialog(destroy_dialog), "completed")
+
+func introspect(game, player):
+	yield(game.read_dialog(introspect_dialog), "completed")

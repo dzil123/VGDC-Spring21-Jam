@@ -7,7 +7,7 @@ onready var allowed_actions_container := get_node(@"AllowedActions")
 onready var selected_actions_container := get_node(@"SelectedActions")
 
 # these can be written and set by the game node
-var allowed_actions := [Actions.WalkUp, Actions.WalkDown, Actions.WalkLeft, Actions.WalkRight, Actions.Destroy]
+var allowed_actions := [Actions.WalkUp, Actions.WalkDown, Actions.WalkLeft, Actions.WalkRight]
 var max_actions := 8
 var selected_actions := []
 var queue_clear = false

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/thonk.png-f5e1d77b3ad186fef75d3ac5445c8088.stex"
+path="res://.import/thonk.png-88ee597c73ecbee041510ce07533a5f3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://thonk.png"
-dest_files=[ "res://.import/thonk.png-f5e1d77b3ad186fef75d3ac5445c8088.stex" ]
+source_file="res://Assets/Sprites/Actions/thonk.png"
+dest_files=[ "res://.import/thonk.png-88ee597c73ecbee041510ce07533a5f3.stex" ]
 
 [params]
 
